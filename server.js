@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require("express");
 const app = express();
 
@@ -18,7 +20,7 @@ const db = require("./src/models");
 const Role = db.role;
 
 db.mongoose
-  .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`)
+  .connect(`${dbConfig.DB_URL}/${dbConfig.DB_NAME}`)
   .then(() => {
     console.log("Connected to Database Successfully");
     initial();
