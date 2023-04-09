@@ -57,7 +57,7 @@ exports.signup = (req, res) => {
 
 exports.signin = (req, res) => {
   User.findOne({
-    username: req.body.username
+    email: req.body.email
   })
   .populate("roles", "-__v")
   .exec()
@@ -86,7 +86,8 @@ exports.signin = (req, res) => {
     var authorities = [];
 
     for (let i = 0; i < user.roles.length; i++) {
-      authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+      // authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
+      authorities.push(user.roles[i].name);
     }
 
     res.status(200).send({
