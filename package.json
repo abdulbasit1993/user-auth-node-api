@@ -4,6 +4,7 @@
   "description": "Node.js + Express + MongoDB User Authentication System",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "author": "Abdul Basit Mehtab",
