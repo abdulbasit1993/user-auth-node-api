@@ -83,6 +83,9 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to User Auth APIs!" });
 });
 
+require("./src/routes/auth")(app);
+require("./src/routes/user")(app);
+
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {
