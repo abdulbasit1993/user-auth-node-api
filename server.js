@@ -23,6 +23,9 @@ db.mongoose
   .connect(`${dbConfig.DB_URL}/${dbConfig.DB_NAME}`)
   .then(() => {
     console.log("Connected to Database Successfully");
+    app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
     initial();
   })
   .catch((err) => {
@@ -87,7 +90,3 @@ require("./src/routes/auth")(app);
 require("./src/routes/user")(app);
 
 const PORT = process.env.PORT || 8080;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
